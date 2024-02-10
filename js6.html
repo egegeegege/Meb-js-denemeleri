@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        body {
+            background-color: gray;
+            font-weight: bold;
+        }
+        
+
+        #genelcerceve {
+            background-color: lightblue;
+            border-radius: 10px;
+            width: 400px;
+            height: 500px;
+        }
+
+        #mesajgirisi {
+            background-color: white;
+            border-radius: 10px;
+            width: 400px;
+            height: 70px;
+        }
+
+        #mesajgirisi>img {
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-left: 30px;
+            margin-top: 10px;
+        }
+
+        #mesajgirisi>input {
+            margin-top: 30px;
+            margin-left: 10px;
+        }
+
+        #mesajkutulari {
+            background-color: white;
+            border-radius: 3px;
+        }
+
+        .gidenmesaj {
+            border-bottom: 2px gray solid;
+        }
+
+        .gidenmesaj>img{
+            width: 20px;
+            height: 20px;
+            margin:5px 5px 0px 5px;
+        }
+
+        #tarih{
+            color: gray;
+            font-size: 10px;
+        }
+
+    </style>
+
+    
+    <div id="genelcerceve">
+        <div id="mesajgirisi">
+            <img src="user.png">
+            <input type="text" id="mesaj" placeholder="mesaj giriniz">
+            <input type="button" value="click" onclick="mesajgonder()">
+        </div>
+        <hr>
+        <div id="mesajkutulari">
+            <!--Burya innerHtml kodlarıya komut girilecek-->
+        </div>
+    </div>
+
+    <script>
+        function mesajgonder(){
+       var mesaj=document.getElementById("mesaj").value;
+       var d =new Date();
+       var saat=d.getHours();
+       var dakika=d.getMinutes();
+       document.getElementById("mesajkutulari").innerHTML+=
+       "<div class='gidenmesaj'> <img src='user.png'>"
+        + mesaj+
+        "<span id='tarih'>"+saat+ ";" +dakika+ "</span></div>";
+        document.getElementById("mesaj").value="";
+        }
+    </script>
+    
+</body>
+
+</html>
